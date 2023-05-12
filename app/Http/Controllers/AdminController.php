@@ -72,6 +72,7 @@ class AdminController extends Controller
         $doctor->room=$request->room;
         $image=$request->file;
         $imagename=time().'.'.$image->getClientOriginalExtension();
+        $request->file->move('doctorimage',$imagename);
         return view('admin.edit_doctor', compact('data','doctor'));
     }
 
