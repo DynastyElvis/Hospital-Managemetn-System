@@ -58,12 +58,21 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back()->with('message', 'doctor deleted successfully');
     }
-    public function update_doctor($id)
+    public function update_doctor( $id)
     {
         $data=doctor::find($id);
         return view('admin.update_doctor', compact('data'));
     }
-
-
+    public function editDoctor(Request $request, $id)
+    {
+        $data=doctor::find($id);
+        $doctor->name=$request->name;
+        $doctor->phone=$request->phone;
+        $doctor->speciality=$request->speciality;
+        $doctor->room=$request->room;
+        $image=$request->file;
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        return view('admin.edit_doctor', compact('data','doctor'));
+    }
 
 }
