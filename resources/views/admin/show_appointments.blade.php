@@ -3,6 +3,11 @@
 <html lang="en">
   <head>
     @include('admin.css')
+    <style>
+        .table-header {
+            padding: 10px; /* Adjust the padding value as needed */
+        }
+    </style>
 </head>
   <body>
     <div class="container-scroller">
@@ -13,15 +18,34 @@
     <div class="container-fluid page-body-wrapper">
         <div align="center">
             <table >
-                <tr>
-                    <th>Patient's name</th>
-                    <th>email</th>
-                    <th>phone</th>
-                    <th>doctor's name</th>
-                    <th>date</th>
-                    <th>message</th>
-                    <th>status</th>
+                <tr align="center">
+                    <th class="table-header">Patient's name</th>
+                    <th class="table-header">email</th>
+                    <th class="table-header">phone</th>
+                    <th class="table-header">doctor's name</th>
+                    <th class="table-header">date</th>
+                    <th class="table-header">message</th>
+                    <th class="table-header">status</th>
+                    <th class="table-header">approve</th>
+                    <th class="table-header">cancel</th>
                 </tr>
+                @foreach ($data as $appoint)
+                <tr align="center">
+                    <td>{{$appoint->name}}</td>
+                    <td>{{$appoint->email}}</td>
+                    <td>{{$appoint->phone}}</td>
+                    <td>{{$appoint->doctor}}</td>
+                    <td>{{$appoint->date}}</td>
+                    <td>{{$appoint->message}}</td>
+                    <td>{{$appoint->status}}</td>
+                    <td>
+                        <a class="btn btn-success" href="{{url('approved', $appoint->id)}}">approved</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="">cancelled</a>
+                    </td>
+                </tr>
+                @endforeach
             </table>
         </div>
     </div>

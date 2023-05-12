@@ -43,6 +43,7 @@ Route::get('/cancel_appointment/{id}',[HomeController::class,'cancel_appointment
 Route::get('/add_doctor',[AdminController::class,'add']);
 Route::post('/upload_doctor',[AdminController::class,'upload']);
 Route::get('/show_appointments',[AdminController::class,'show_appointments']);
+Route::get('/approved',[AdminController::class,'approved']);
 
 
 
