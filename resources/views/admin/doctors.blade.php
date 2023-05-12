@@ -16,7 +16,14 @@
       <!-- partial -->
     @include('admin.navbar')
         <!-- partial -->
+    
         <div class="container-fluid page-body-wrapper">
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                {{session()->get('message')}}
+            </div>
+            @endif
             <div align="center">
                 <table >
                     <tr align="center">
@@ -43,7 +50,7 @@
                             <a onclick="return confirm('are you sure you want to delete this doctor from the system?')" href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-danger">delete</a>
                         </td>
                         <td>
-                            <a href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-primary">edit</a>
+                            <a href="{{url('update_doctor', $doctor->id)}}" class="btn btn-primary">edit</a>
                         </td>
                     </tr>
                     @endforeach 
