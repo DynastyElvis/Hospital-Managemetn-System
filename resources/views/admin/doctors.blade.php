@@ -40,7 +40,7 @@
                             <img height="60" width="80" src="doctorimage/{{$doctor->image}}" alt="">
                         </td>
                         <td>
-                            <a href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-danger">delete</a>
+                            <a onclick="return confirm('are you sure you want to delete this doctor from the system?')" href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-danger">delete</a>
                         </td>
                         <td>
                             <a href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-primary">edit</a>
