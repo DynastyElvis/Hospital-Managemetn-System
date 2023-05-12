@@ -25,6 +25,8 @@
                         <th class="table-header">speciality</th>
                         <th class="table-header">room</th>
                         <th class="table-header">image</th>
+                        <th class="table-header">delete</th>
+                        <th class="table-header">update</th>
 
                     </tr>
 
@@ -36,6 +38,12 @@
                         <td>{{$doctor->room}}</td>
                         <td>
                             <img height="60" width="80" src="doctorimage/{{$doctor->image}}" alt="">
+                        </td>
+                        <td>
+                            <a href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-danger">delete</a>
+                        </td>
+                        <td>
+                            <a href="{{url('delete_doctor', $doctor->id)}}" class="btn btn-primary">edit</a>
                         </td>
                     </tr>
                     @endforeach 
