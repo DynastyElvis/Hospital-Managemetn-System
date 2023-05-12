@@ -12,7 +12,7 @@
     @include('admin.navbar')
     <div class="container-fluid page-body-wrapper">
         <div align="center">
-            <table>
+            <table >
                 <tr>
                     <th>Patient's name</th>
                     <th>email</th>
