@@ -61,7 +61,7 @@ class AdminController extends Controller
     public function update_doctor($id)
     {
         $data=doctor::find($id);
-        return view('admin.update_doctor');
+        return view('admin.update_doctor', compact('data'));
     }
 
 
